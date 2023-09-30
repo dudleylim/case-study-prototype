@@ -14,25 +14,35 @@ import lombok.NoArgsConstructor;
 public class CommodityClass {
     @Id
     @GeneratedValue
-    private Long comm_class_id;
+    @Column(name = "comm_class_id")
+    private Long commClassId;
 
-    @Column(nullable = false)
-    private String comm_class_name;
+    @Column(name = "comm_class_name", nullable = false)
+    private String commClassName;
 
-    private String description;
+    @Column(name = "comm_class_description")
+    private String commClassDescription;
 
-    @Column(nullable = false)
-    private Status comm_class_status;
+    @Column(name = "comm_class_status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status commClassStatus;
 
-    private String comm_class_status_reason;
+    @Column(name = "comm_class_status_reason")
+    private String commClassStatusReason;
 
-    // Foreign Keys
-    @Column(nullable = false)
-    private String service_type;
+    @Column(name = "service_type", nullable = false)
+    private String serviceType;
 
     // System Generated Values
-    private String date_created;
-    private String date_last_modified;
-    private String created_by;
-    private String last_modified_by;
+    @Column(name = "date_created")
+    private String dateCreated;
+
+    @Column(name = "date_last_modified")
+    private String dateLastModified;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "last_modified_by")
+    private String lastModifiedBy;
 }

@@ -19,24 +19,36 @@ import java.time.LocalDateTime;
 public class Commodity {
     @Id
     @GeneratedValue
-    private Long comm_id;
+    @Column(name = "comm_id")
+    private Long commId;
 
-    @Column(nullable = false)
-    private String comm_name;
+    @Column(name = "comm_name", nullable = false)
+    private String commName;
 
-    private String description;
+    @Column(name = "comm_description")
+    private String commDescription;
 
-    @Column(nullable = false)
-    private Status comm_status;
+    @Column(name = "comm_status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status commStatus;
 
-    private String comm_status_reason;
+    @Column(name = "comm_status_reason")
+    private String commStatusReason;
 
-    @Column(nullable = false)
-    private String service_type;
+    // Foreign Keys
+    @ManyToOne
+    private CommodityClass commClass;
 
     // System Generated Values
-    private String date_created;
-    private String date_last_modified;
-    private String created_by;
-    private String last_modified_by;
+    @Column(name = "date_created")
+    private String dateCreated;
+
+    @Column(name = "date_last_modified")
+    private String dateLastModified;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "last_modified_by")
+    private String lastModifiedBy;
 }
