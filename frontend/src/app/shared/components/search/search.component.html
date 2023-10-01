@@ -1,0 +1,7 @@
+<div class="flex flex-col gap-3">
+    <div class="flex flex-row gap-3">
+        <app-input-text class="w-[300px]" (inputChanged)="onInput($event)"></app-input-text>
+        <app-button [bgColor]="'bg-secondary'" (click)="search()">Search</app-button>
+    </div>
+    <app-filter (filterChanged)="onFilterChanged($event)"></app-filter>
+</div>

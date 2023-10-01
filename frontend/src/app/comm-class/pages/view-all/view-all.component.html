@@ -1,0 +1,12 @@
+<app-main-container>
+    <div class="flex flex-row items-center gap-5">
+        <h1 class="title">Commodity Classes</h1>
+        <app-button [bgColor]="'bg-primary'" [routerLink]="['add']">+ Add Commodity Class</app-button>
+    </div>
+    <app-search (searchPressed)="search($event)" (filterChanged)="filter($event)"></app-search>
+    <div *ngFor="let commClass of filteredCommClasses" class="pl-3">
+        <a [routerLink]="[commClass.commClassId]">
+            {{ commClass.commClassId }}. {{ commClass.commClassName }} ({{  commClass.commClassStatus }})
+        </a>
+    </div>
+</app-main-container>

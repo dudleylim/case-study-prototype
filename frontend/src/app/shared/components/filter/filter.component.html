@@ -1,0 +1,11 @@
+<fieldset class="flex flex-row gap-10">
+    <div class="flex flex-row gap-1 items-center">
+        <input (change)="onFilterChanged()" [(ngModel)]="filterValue" checked type="radio" name="filter" id="all" value="all" class="checked:bg-primary checked:hover:bg-primary checked:active:bg-primary checked:focus:bg-primary focus:bg-primary focus:outline-none focus:ring-1 focus:ring-primary"><label for="all" class="text-small">All</label>
+    </div>
+    <div class="flex flex-row gap-1 items-center">
+        <input (change)="onFilterChanged()" [(ngModel)]="filterValue" type="radio" name="filter" id="active" value="active" class="checked:bg-primary checked:hover:bg-primary checked:active:bg-primary checked:focus:bg-primary focus:bg-primary focus:outline-none focus:ring-1 focus:ring-primary"><label for="active" class="text-small">Active</label>
+    </div>
+    <div class="flex flex-row gap-1 items-center">
+        <input (change)="onFilterChanged()" [(ngModel)]="filterValue" type="radio" name="filter" id="inactive" value="inactive" class="checked:bg-primary checked:hover:bg-primary checked:active:bg-primary checked:focus:bg-primary focus:bg-primary focus:outline-none focus:ring-1 focus:ring-primary"><label for="inactive" class="text-small">Inactive</label>
+    </div>
+</fieldset>
