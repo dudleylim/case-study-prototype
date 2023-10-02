@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TooltipComponent {
   @Input() value: any = "";
+  @Input() id: any;
 }

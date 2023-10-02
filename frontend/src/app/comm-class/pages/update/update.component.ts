@@ -44,6 +44,7 @@ export class UpdateComponent implements OnInit {
       }))
       .subscribe({
         next: (response) => {
+          this.error = false;
           this.commClass = response;
 
           this.setName(response.commClassName);

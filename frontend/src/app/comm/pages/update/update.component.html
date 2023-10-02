@@ -1,44 +1,49 @@
 <app-main-container>
-    <div class="flex flex-row items-center gap-5">
-        <h1 class="title">Update Commodity</h1>
+    <div *ngIf="error">
+        <h1 class="title">{{ errorMessage }}</h1>
     </div>
-
-    <fieldset *ngIf="commClasses.length > 0">
-        <label class="subtitle" for="">Commodity Class:</label><br>
-        <app-dropdown [id]="'commClass'" [value]="commClassId" (valueChanged)="setCommClassId($event)">
-            <option *ngFor="let commClass of commClasses" [value]="commClass.commClassId">{{ commClass.commClassName }}</option>
-        </app-dropdown>
-    </fieldset>
+    <ng-container *ngIf="!error">
+        <div class="flex flex-row items-center gap-5">
+            <h1 class="title">Update Commodity</h1>
+        </div>
+        
+        <fieldset *ngIf="commClasses.length > 0">
+            <label class="subtitle" for="">Commodity Class:</label><br>
+            <app-dropdown [id]="'commClass'" [value]="commClassId" (valueChanged)="setCommClassId($event)">
+                <option *ngFor="let commClass of commClasses" [value]="commClass.commClassId">{{ commClass.commClassName }}</option>
+            </app-dropdown>
+        </fieldset>
+        
+        <fieldset>
+            <label class="subtitle" for="">Commodity Name:</label>    
+            <app-input-text [placeholder]="'Commodity Name...'" (inputChanged)="setName($event)" [value]="name.valueOf()"></app-input-text>
+        </fieldset>
     
-    <fieldset>
-        <label class="subtitle" for="">Commodity Name:</label>    
-        <app-input-text [placeholder]="'Commodity Name...'" (inputChanged)="setName($event)" [value]="name.valueOf()"></app-input-text>
-    </fieldset>
-    
-    <fieldset>
-        <label class="subtitle" for="">Description:</label>    
-        <app-input-text [placeholder]="'Commodity Description...'" (inputChanged)="setDescription($event)" [value]="description.valueOf()"></app-input-text>
-    </fieldset>
-
-    <fieldset>
-        <label class="subtitle" for="">Status:</label><br>
-        <app-dropdown [value]="status" [id]="'status'" (valueChanged)="setStatus($event)">
-            <option value="ACTIVE">ACTIVE</option>
-            <option value="INACTIVE">INACTIVE</option>
-        </app-dropdown>
-    </fieldset>
-
-    <fieldset *ngIf="status === 'INACTIVE'">
-        <label class="subtitle" for="">Status Reason:</label>    
-        <app-input-text [placeholder]="'Commodity Status Reason...'" (inputChanged)="setStatusReason($event)" [value]="statusReason.valueOf()"></app-input-text>
-    </fieldset>
-
-    <div class="flex flex-row gap-4">
-        <app-button [bgColor]="'bg-primary'" (click)="update()">
-            Submit
-        </app-button>
-        <app-button [bgColor]="'bg-secondary'" (click)="back()">
-            Back
-        </app-button>
-    </div>
+        <fieldset>
+            <label class="subtitle" for="">Description:</label>    
+            <app-input-text [placeholder]="'Commodity Description...'" (inputChanged)="setDescription($event)" [value]="description.valueOf()"></app-input-text>
+        </fieldset>
+        
+        <fieldset>
+            <label class="subtitle" for="">Status:</label><br>
+            <app-dropdown [value]="status" [id]="'status'" (valueChanged)="setStatus($event)">
+                <option value="ACTIVE">ACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
+            </app-dropdown>
+        </fieldset>
+        
+        <fieldset *ngIf="status === 'INACTIVE'">
+            <label class="subtitle" for="">Status Reason:</label>    
+            <app-input-text [placeholder]="'Commodity Status Reason...'" (inputChanged)="setStatusReason($event)" [value]="statusReason.valueOf()"></app-input-text>
+        </fieldset>
+        
+        <div class="flex flex-row gap-4">
+            <app-button [bgColor]="'bg-primary'" (click)="update()">
+                Submit
+            </app-button>
+            <app-button [bgColor]="'bg-secondary'" (click)="back()">
+                Back
+            </app-button>
+        </div>
+    </ng-container>
 </app-main-container>

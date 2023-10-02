@@ -50,6 +50,7 @@ export class UpdateComponent {
       }))
       .subscribe({
         next: (response) => {
+          this.error = false;
           this.comm = response;
 
           this.setName(response.commName);

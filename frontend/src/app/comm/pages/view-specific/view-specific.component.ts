@@ -12,7 +12,7 @@ import { EMPTY, catchError } from 'rxjs';
 })
 export class ViewSpecificComponent {
   id: Number = 0;
-  error: boolean = false;
+  error: boolean = true;
   errorMessage: String = "";
   comm?: IComm;
 
@@ -37,6 +37,7 @@ export class ViewSpecificComponent {
       }))
       .subscribe({
         next: (response) => {
+          this.error = false;
           this.comm = response;
         }
       });
