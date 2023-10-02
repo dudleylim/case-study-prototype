@@ -1,1 +1,26 @@
-<p>view-specific works!</p>
+<app-main-container>
+    <div class="flex flex-row items-center gap-5" *ngIf="!error">
+        <h1 class="title">{{ commClass?.commClassName }} ({{ commClass?.commClassStatus }})</h1>
+    </div>
+    <div class="flex flex-col gap-5">
+        <p>Service Type: {{ commClass?.serviceType }}</p>
+        <p>{{ commClass?.commClassDescription }}</p>
+    </div>
+
+    <div class="flex flex-col gap-2 mt-6">
+        <p>Date created: {{ commClass?.dateCreated }}</p>
+        <p>Date last modified: {{ commClass?.dateLastModified }}</p>
+    </div>
+    <div class="flex flex-col gap-2">
+        <p>Created by: {{ commClass?.createdBy }}</p>
+        <p>Last modified by: {{ commClass?.lastModifiedBy }}</p>
+    </div>
+
+    <div class="flex flex-row gap-5">
+        <app-button-link [bgColor]="'bg-secondary'" [route]="'../update/' + commClass?.commClassId">Update</app-button-link>
+        <app-button [bgColor]="'bg-secondary'" (click)="back()">Back</app-button>
+    </div>
+    <div *ngIf="error">
+        <h1 class="title">{{ errorMessage }}</h1>
+    </div>
+</app-main-container>

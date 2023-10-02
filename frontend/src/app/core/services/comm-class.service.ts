@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { ICommClass } from '@core/models/ICommClass';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -20,5 +21,21 @@ export class CommClassService implements OnInit {
   // Methods
   getCommClasses(): Observable<any> {
     return this.http.get(this.apiUrl);
+  }
+
+  getCommClass(id: Number): Observable<any> {
+    return this.http.get(this.apiUrl + `/${id}`);
+  }
+
+  addCommClass(commClass: ICommClass): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this.http.post(this.apiUrl, commClass, {headers});
+  }
+
+  updateCommClass(commClass: ICommClass): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json');
+    return this.http.put(this.apiUrl + `/${commClass.commClassId}`, commClass, {headers});
   }
 }

@@ -7,6 +7,8 @@ import { MainContainerComponent } from './components/main-container/main-contain
 import { SearchComponent } from './components/search/search.component';
 import { InputTextComponent } from './components/input-text/input-text.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { ButtonLinkComponent } from './components/button-link/button-link.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 
 
@@ -16,7 +18,9 @@ import { FilterComponent } from './components/filter/filter.component';
     MainContainerComponent,
     SearchComponent,
     InputTextComponent,
-    FilterComponent
+    FilterComponent,
+    ButtonLinkComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,10 @@ import { FilterComponent } from './components/filter/filter.component';
   exports: [
     ButtonComponent,
     MainContainerComponent,
-    SearchComponent
+    SearchComponent,
+    ButtonLinkComponent,
+    InputTextComponent,
+    DropdownComponent
   ]
 })
 export class SharedModule { }

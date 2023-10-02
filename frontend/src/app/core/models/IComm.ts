@@ -1,15 +1,15 @@
 import { ICommClass } from "./ICommClass";
 
 export interface IComm {
-    commId: Number,
-    commName: String,
+    commId?: Number,
+    commName?: String,
     commDescription?: String,
-    commStatus: String,
+    commStatus?: String,
     commStatusReason?: String,
-    commClass: ICommClass,
+    commClass?: ICommClass,
 
-    dateCreated: String,
-    dateLastModified: String,
-    createdBy: String,
-    lastModifiedBy: String
+    dateCreated?: String,
+    dateLastModified?: String,
+    createdBy?: String,
+    lastModifiedBy?: String
 }

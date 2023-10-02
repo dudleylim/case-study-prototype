@@ -21,7 +21,7 @@ module.exports = {
         // weight: 500
       fontSize: {
         title: "3.052rem",
-        subtitle: "2.441rem",
+        subtitle: "1.953rem",
         body: "1.25rem",
         small: "1rem"
       },

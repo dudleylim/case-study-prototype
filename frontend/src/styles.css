@@ -23,3 +23,8 @@ html, body {
     font-size: theme(fontSize[title]);
     font-weight: theme(fontWeight[title]);
 }
+
+.subtitle {
+    font-size: theme(fontSize[subtitle]);
+    font-weight: theme(fontWeight[subtitle]);
+}

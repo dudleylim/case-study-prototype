@@ -1,1 +1,12 @@
-<p>view-all works!</p>
+<app-main-container>
+    <div class="flex flex-row items-center gap-5">
+        <h1 class="title">Commodities</h1>
+        <app-button [bgColor]="'bg-primary'" [routerLink]="['add']">+ Add Commodity</app-button>
+    </div>
+    <app-search (searchPressed)="search($event)" (filterChanged)="filter($event)"></app-search>
+    <div *ngFor="let comm of filteredComms" class="pl-3">
+        <a [routerLink]="[comm.commId]">
+            {{ comm.commId }}. {{ comm.commName }} ({{  comm.commStatus }})
+        </a>
+    </div>
+</app-main-container>

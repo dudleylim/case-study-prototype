@@ -1,13 +1,13 @@
 export interface ICommClass {
-    commClassId: Number,
-    commClassName: String,
+    commClassId?: Number,
+    commClassName?: String,
     commClassDescription?: String,
-    commClassStatus: String,
+    commClassStatus?: String,
     commClassStatusReason?: String,
-    serviceType: String,
+    serviceType?: String,
 
-    dateCreated: String,
-    dateLastModified: String,
-    createdBy: String,
-    lastModifiedBy: String
+    dateCreated?: String,
+    dateLastModified?: String,
+    createdBy?: String,
+    lastModifiedBy?: String
 }

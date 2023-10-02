@@ -1,1 +1,31 @@
-<p>add works!</p>
+<app-main-container>
+    <div class="flex flex-row items-center gap-5">
+        <h1 class="title">Add Commodity</h1>
+    </div>
+
+    <fieldset *ngIf="commClasses.length > 0">
+        <label class="subtitle" for="">Commodity Class:</label><br>
+        <app-dropdown [id]="'commClass'" (valueChanged)="setCommClassId($event)">
+            <option *ngFor="let commClass of commClasses" [value]="commClass.commClassId">{{ commClass.commClassName }}</option>
+        </app-dropdown>
+    </fieldset>
+    
+    <fieldset>
+        <label class="subtitle" for="">Commodity Name:</label>    
+        <app-input-text [placeholder]="'Commodity Class Name...'" (inputChanged)="setName($event)"></app-input-text>
+    </fieldset>
+    
+    <fieldset>
+        <label class="subtitle" for="">Description:</label>    
+        <app-input-text [placeholder]="'Commodity Class Description...'" (inputChanged)="setDescription($event)"></app-input-text>
+    </fieldset>
+
+    <div class="flex flex-row gap-4">
+        <app-button [bgColor]="'bg-primary'" (click)="add()">
+            Submit
+        </app-button>
+        <app-button [bgColor]="'bg-secondary'" (click)="back()">
+            Back
+        </app-button>
+    </div>
+</app-main-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ICommClass } from '@core/models/ICommClass';
 import { CommClassService } from '@core/services/comm-class.service';
 
@@ -11,6 +11,7 @@ export class ViewAllComponent implements OnInit {
   commClasses: ICommClass[] = [];
   searchedCommClasses: ICommClass[] = [];
   filteredCommClasses: ICommClass[] = [];
+  finalCommClasses: ICommClass[] = [];
   searchValue: string = "";
   filterValue: string = "all";
 
@@ -34,12 +35,25 @@ export class ViewAllComponent implements OnInit {
 
   search(value: string) {
     this.searchValue = value;
-    
+    if (this.searchValue.length > 2) {
+      this.searchedCommClasses = this.commClasses.filter((commClass) => {
+        return commClass.commClassName?.toLowerCase().includes(this.searchValue.toLowerCase());
+      })
+    } else if (this.searchValue.length == 0) {
+      this.searchedCommClasses = this.commClasses;
+    }
+    this.filter(this.filterValue);
   }
 
   filter(value: string) {
     this.filterValue = value;
-    
+    this.filteredCommClasses = this.searchedCommClasses.filter((commClass) => {
+      if (this.filterValue == "all") {
+        return commClass;
+      } else {
+        return commClass.commClassStatus?.toLowerCase() == this.filterValue.toLowerCase();
+      }
+    });
   }
 
   log(value: string) {

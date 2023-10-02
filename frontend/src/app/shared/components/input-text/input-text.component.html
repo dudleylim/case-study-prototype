@@ -5,8 +5,9 @@
         focus:ring-blue-500 focus:border-blue-500 block
         p-2.5 w-full
         dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    placeholder="Search..."
+    [placeholder]="placeholder"
     [(ngModel)]="input"
+    [value]="value"
     (input)="onInputChanged()"
     required
 >
