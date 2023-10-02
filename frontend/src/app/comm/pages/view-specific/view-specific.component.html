@@ -1,10 +1,13 @@
 <app-main-container>
     <div class="flex flex-row items-center gap-5" *ngIf="!error">
-        <h1 class="title">{{ comm?.commName }} ({{ comm?.commStatus }})</h1>
+        <h1 class="title">{{ comm?.commName }} <span class="title" [ngClass]="comm?.commStatus == 'ACTIVE' ? 'text-success' : 'text-error'">({{ comm?.commStatus }})<app-tooltip *ngIf="comm?.commStatus == 'INACTIVE'" [value]="comm?.commStatusReason"></app-tooltip></span></h1>
+    </div>
+    <div *ngIf="error">
+        <h1 class="title">{{ errorMessage }}</h1>
     </div>
     <div class="flex flex-col gap-5">
-        <p>Commodity Class: {{ comm?.commClass?.commClassName }}</p>
-        <p>{{ comm?.commDescription }}</p>
+        <p class="subtitle">Commodity Class: {{ comm?.commClass?.commClassName }}</p>
+        <p class="small">{{ comm?.commDescription }}</p>
     </div>
 
     <div class="flex flex-col gap-2 mt-6">
@@ -17,10 +20,7 @@
     </div>
 
     <div class="flex flex-row gap-5">
-        <app-button-link [bgColor]="'bg-secondary'" [route]="'../update/' + comm?.commId">Update</app-button-link>
+        <app-button-link [bgColor]="'bg-primary'" [route]="'../update/' + comm?.commId">Update</app-button-link>
         <app-button [bgColor]="'bg-secondary'" (click)="back()">Back</app-button>
-    </div>
-    <div *ngIf="error">
-        <h1 class="title">{{ errorMessage }}</h1>
     </div>
 </app-main-container>

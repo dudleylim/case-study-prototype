@@ -12,7 +12,7 @@ export class ButtonComponent implements OnInit {
   ngOnInit(): void {
     this.classesList.push(this.bgColor);
     let textColor: string;
-    if (this.bgColor == "bg-secondary") {
+    if (this.bgColor == "bg-secondary" || this.bgColor == "bg-success" || this.bgColor == "bg-error") {
       textColor = "text-background";
     } else {
       textColor = "text-secondary";

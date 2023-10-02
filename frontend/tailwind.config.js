@@ -10,7 +10,9 @@ module.exports = {
         text: "#41463F",
         primary: "#FCAE1D", 
         secondary: "#41463F",
+        secondaryFaded: "#727272",
         background: "#FBFBFE",
+        success: "#198754",
         error: "#ff0000"
       },
 

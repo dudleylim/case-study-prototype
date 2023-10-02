@@ -28,3 +28,14 @@ html, body {
     font-size: theme(fontSize[subtitle]);
     font-weight: theme(fontWeight[subtitle]);
 }
+
+.body {
+    font-size: theme(fontSize[body]);
+    font-weight: theme(fontWeight[body]);
+}
+
+.small {
+    font-size: theme(fontSize[small]);
+    font-weight: theme(fontWeight[small]);
+    color: theme(colors[secondaryFaded]);
+}

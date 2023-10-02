@@ -9,6 +9,7 @@ import { InputTextComponent } from './components/input-text/input-text.component
 import { FilterComponent } from './components/filter/filter.component';
 import { ButtonLinkComponent } from './components/button-link/button-link.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
 
 
 
@@ -20,7 +21,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     InputTextComponent,
     FilterComponent,
     ButtonLinkComponent,
-    DropdownComponent
+    DropdownComponent,
+    TooltipComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     SearchComponent,
     ButtonLinkComponent,
     InputTextComponent,
-    DropdownComponent
+    DropdownComponent,
+    TooltipComponent
   ]
 })
 export class SharedModule { }
